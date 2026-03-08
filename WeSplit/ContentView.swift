@@ -42,8 +42,7 @@ struct ContentView: View {
 				Form {
 					Section {
 						TipTextField(checkAmount: $checkAmount, amountIsFocus: $amountIsFocus, currencyCode: currencyCode)
-						//Text(totalPerPerson, format: .currency(code: currencyCode))
-						Stepper("People: \(numberOfPeople)", value: $numberOfPeople, in: 1...99)
+						Stepper("^[\(numberOfPeople) person](inflect: true)", value: $numberOfPeople, in: 1...99)
 					}
 					TipPickerView(percentages: tipPercentages, selection: $tipPercentage)
 					Section {

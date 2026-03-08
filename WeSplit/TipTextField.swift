@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct TipTextField: View {
 	@Binding var checkAmount: Double
@@ -22,19 +21,16 @@ struct TipTextField: View {
 			.accessibilityLabel("Check amount")
 			.accessibilityHint(checkAmount < 0 ? "Amount cannot be negative" : "")
 			.foregroundStyle(checkAmount < 0 ? .red : .primary)
-
-			.onSubmit {
-				amountIsFocus = false
-			}
 			.toolbar {
 				ToolbarItemGroup(placement: .keyboard) {
 					Spacer()
 					Button("Done") {
 						amountIsFocus = false
-						// When done editing:
-						UIImpactFeedbackGenerator(style: .light).impactOccurred()
 					}
 				}
+			}
+			.sensoryFeedback(.impact(weight: .light), trigger: amountIsFocus) { old, new in
+				old == true && new == false
 			}
 	}
 }
