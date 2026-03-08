@@ -27,10 +27,10 @@ struct TipTextField: View {
 					Button("Done") {
 						amountIsFocus = false
 					}
+					.sensoryFeedback(.impact(weight: .light), trigger: amountIsFocus) { old, new in
+						old == true && new == false
+					}
 				}
-			}
-			.sensoryFeedback(.impact(weight: .light), trigger: amountIsFocus) { old, new in
-				old == true && new == false
 			}
 	}
 }
