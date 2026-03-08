@@ -16,11 +16,7 @@ struct ContentView: View {
 	
 	var totalPerPerson: Double {
 		let peopleCount = max(1, Double(numberOfPeople))
-		let tipSelection = Double(tipPercentage)
-		let tipValue = checkAmount / 100 * tipSelection
-		let grandTotal = checkAmount + tipValue
-		let amountPerPerson = grandTotal / peopleCount
-		return amountPerPerson
+		return grandTotal / peopleCount
 	}
 	
 	var grandTotal: Double {
@@ -43,7 +39,7 @@ struct ContentView: View {
 					Section {
 						TipTextField(checkAmount: $checkAmount, amountIsFocus: $amountIsFocus, currencyCode: currencyCode)
 						//Text(totalPerPerson, format: .currency(code: currencyCode))
-						Stepper("People: \(numberOfPeople)", value: $numberOfPeople, in: 1...99)
+						Stepper(numberOfPeople == 1 ? "1 Person" : "\(numberOfPeople) People", value: $numberOfPeople, in: 1...99)
 					}
 					TipPickerView(percentages: tipPercentages, selection: $tipPercentage)
 					Section {
