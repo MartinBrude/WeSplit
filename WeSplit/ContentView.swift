@@ -11,7 +11,7 @@ struct ContentView: View {
 	let tipPercentages = Array(0..<101)
 	@State private var checkAmount = 0.10
 	@AppStorage("numberOfPeople") private var numberOfPeople = 2
-	@State private var tipPercentage = 20
+	@AppStorage("tipPercentage") private var tipPercentage = 20
 	@FocusState private var amountIsFocus: Bool
 	
 	var totalPerPerson: Double {
@@ -37,39 +37,34 @@ struct ContentView: View {
 				endPoint: .bottomTrailing
 			)
 			.ignoresSafeArea()
-			
+
 			NavigationStack {
 				Form {
 					Section {
-						TextField("Amount", value: $checkAmount, format: .currency(code: currencyCode))
-							.keyboardType(.decimalPad)
-							.focused($amountIsFocus)
-						Text(totalPerPerson, format: .currency(code: currencyCode))
+						TipTextField(checkAmount: $checkAmount, amountIsFocus: $amountIsFocus, currencyCode: currencyCode)
+						//Text(totalPerPerson, format: .currency(code: currencyCode))
 						Stepper("People: \(numberOfPeople)", value: $numberOfPeople, in: 1...99)
 					}
-					Section("How much do you want to tip?") {
-						TipPickerView(percentages: tipPercentages, selection: $tipPercentage)
-					}
+					TipPickerView(percentages: tipPercentages, selection: $tipPercentage)
 					Section {
-						Text(totalPerPerson, format: .currency(code: currencyCode))
-							.foregroundColor(tipPercentage == 0 ? .red : .primary)
+						LabeledContent("Per person") {
+							Text(totalPerPerson, format: .currency(code: currencyCode))
+						}
+						LabeledContent("Grand total") {
+							Text(grandTotal, format: .currency(code: currencyCode))
+						}
 					}
 				}
 				.scrollContentBackground(.hidden)
 				.background(.clear)
 				.navigationTitle("WeSplit")
-				.toolbar {
-					if amountIsFocus {
-						Button("Done") {
-							amountIsFocus = false
-						}
-					}
-				}
 				.toolbarBackground(.hidden, for: .navigationBar)
 			}
 		}
 	}
 }
+
+
 
 #Preview {
 	ContentView()
