@@ -11,6 +11,7 @@
 		F7542E7A2B1B66CC00147791 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7542E792B1B66CC00147791 /* ContentView.swift */; };
 		F7542E7C2B1B66CD00147791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7542E7B2B1B66CD00147791 /* Assets.xcassets */; };
 		F7542E7F2B1B66CD00147791 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7542E7E2B1B66CD00147791 /* Preview Assets.xcassets */; };
+		F7FD373C2F5E03AB00E5A72F /* TipPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD373B2F5E03AB00E5A72F /* TipPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F7542E792B1B66CC00147791 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7542E7B2B1B66CD00147791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7542E7E2B1B66CD00147791 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7FD373B2F5E03AB00E5A72F /* TipPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				F7542E772B1B66CC00147791 /* WeSplitApp.swift */,
 				F7542E792B1B66CC00147791 /* ContentView.swift */,
+				F7FD373B2F5E03AB00E5A72F /* TipPickerView.swift */,
 				F7542E7B2B1B66CD00147791 /* Assets.xcassets */,
 				F7542E7D2B1B66CD00147791 /* Preview Content */,
 			);
@@ -111,6 +114,9 @@
 				Base,
 			);
 			mainGroup = F7542E6B2B1B66CC00147791;
+			packageReferences = (
+				F78BDE0A2F5DF54200A57E9E /* XCRemoteSwiftPackageReference "SwiftAgents" */,
+			);
 			productRefGroup = F7542E752B1B66CC00147791 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FD373C2F5E03AB00E5A72F /* TipPickerView.swift in Sources */,
 				F7542E7A2B1B66CC00147791 /* ContentView.swift in Sources */,
 				F7542E782B1B66CC00147791 /* WeSplitApp.swift in Sources */,
 			);
@@ -344,6 +351,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F78BDE0A2F5DF54200A57E9E /* XCRemoteSwiftPackageReference "SwiftAgents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/SwiftAgents";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = F7542E6C2B1B66CC00147791 /* Project object */;
 }
